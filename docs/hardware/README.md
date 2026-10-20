@@ -12,6 +12,7 @@ a new device."
 | GPS / GNSS receivers | [gps.md](gps.md) |
 | Barometric & IMU/AHRS sensors | [sensors.md](sensors.md) |
 | OGN trackers (RX/TX), AIS, and external ADS-B receivers (Ping/Pong/UATRadio) | [ogn-ais-receivers.md](ogn-ais-receivers.md) |
+| Running on a Raspberry Pi Zero 2 W (512 MB RAM, single USB port) | [pi-zero-2w.md](pi-zero-2w.md) |
 | Cooling fan | see `fancontrol_main/` (PID PWM fan, default BCM pin 18, own systemd service) |
 
 ## How devices are recognized

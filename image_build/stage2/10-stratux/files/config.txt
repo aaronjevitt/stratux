@@ -29,3 +29,9 @@ core_freq=450
 arm_freq=900
 
 arm_64bit=1
+
+# Pi Zero 2 W (512MB RAM): Stratux is headless, so give the GPU the minimum and
+# leave as much memory as possible for the decoders and the tmpfs root overlay.
+[pi02]
+gpu_mem=16
+[all]

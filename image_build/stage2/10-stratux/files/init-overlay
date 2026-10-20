@@ -166,8 +166,15 @@ if [ "$OVERLAY_RW_LAYER" = "persistent" ] ; then
     mount -n --bind /overlay/robase/"$OVERLAY_RW_LAYER_DIR" ${ovr_rwdata}
     echo "After bind mount "$OVERLAY_RW_LAYER_DIR" for overlay rwdata"
 else
-    # Stratux: max overlay size=250m
-    /bin/mount -o size=250m -n -t tmpfs none ${ovr_rwdata}
+    # Stratux: max overlay size=250m, or a quarter of RAM on low-memory boards
+    # (e.g. Pi Zero 2 W) so a filling overlay can't starve the decoders.
+    ovr_size_kb=256000
+    while read key val unit ; do
+        if [ "$key" = "MemTotal:" ] && [ $((val / 4)) -lt $ovr_size_kb ] ; then
+            ovr_size_kb=$((val / 4))
+        fi
+    done < /proc/meminfo
+    /bin/mount -o size=${ovr_size_kb}k -n -t tmpfs none ${ovr_rwdata}
 fi
 
 case "$OVERLAY" in

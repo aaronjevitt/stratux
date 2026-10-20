@@ -36,6 +36,7 @@ hardware integration). User-facing how-tos live in the
   - [hardware/sensors.md](hardware/sensors.md) — barometric and IMU/AHRS sensors.
   - [hardware/ogn-ais-receivers.md](hardware/ogn-ais-receivers.md) — OGN trackers (RX/TX),
     AIS, and external ADS-B receivers (Ping/Pong/UATRadio).
+  - [hardware/pi-zero-2w.md](hardware/pi-zero-2w.md) — running on the 512 MB Pi Zero 2 W.
 
 ## Tech debt
 
